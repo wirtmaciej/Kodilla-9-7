@@ -118,4 +118,14 @@ function setGamePoints() {
     computerPointsElem.innerHTML = computer.score;
 }
 
+function checkGameWinner() {
+    if (player.score == 10) {
+        playerResultElem.innerHTML = "The Winner is Player";
+        gameState = 'ended'
+    } else if (computer.score == 10) {
+        computerResultElem.innerHTML = "The Winner is Computer!";
+        gameState = 'ended';
+    }
+}
 
+checkGameWinner();

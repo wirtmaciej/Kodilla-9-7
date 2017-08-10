@@ -19,10 +19,7 @@ var gameState = 'notStarted',
         score: 0
     };
 
-    console.log(gameState);
-    console.log(player);
-    console.log(computer);
-
+   
 var newGameElem = document.getElementById('js-newGameElement'),
     pickElem = document.getElementById('js-playerPickElement'),
     resultsElem = document.getElementById('js-resultsTableElement');
@@ -33,7 +30,6 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
 
 function newGame() {
     player.name = prompt('Please enter your name', 'imię gracza');
-    console.log(player.name);
     if (player.name) {
         player.score = computer.score = 0;
         gameState = 'started';
@@ -118,14 +114,25 @@ function setGamePoints() {
     computerPointsElem.innerHTML = computer.score;
 }
 
+var playerwins = player['score'];
+var computerwins = computer['score'];
+
 function checkGameWinner() {
-    if (player.score == 10) {
+    
+    if (playerwins > 9) {
         playerResultElem.innerHTML = "The Winner is Player";
+        alert(playerResultElem.innerHTML);
         gameState = 'ended'
-    } else if (computer.score == 10) {
+    } else if (computerwins > 9) {
         computerResultElem.innerHTML = "The Winner is Computer!";
+        alert(computerResultElem.innerHTML);
         gameState = 'ended';
     }
 }
 
 checkGameWinner();
+
+console.log(player);
+console.log(computer);
+console.log(playerwins);
+console.log(computerwins);

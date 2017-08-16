@@ -109,30 +109,30 @@ function checkRoundWinner(playerPick, computerPick) {
 
 }
 
+
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
 }
 
-var playerwins = player['score'];
-var computerwins = computer['score'];
-
-function checkGameWinner() {
+function checkGameWinner(playerWins, computerWins) {
     
-    if (playerwins > 9) {
+    if (playerWins> 1) {
         playerResultElem.innerHTML = "The Winner is Player";
         alert(playerResultElem.innerHTML);
-        gameState = 'ended'
-    } else if (computerwins > 9) {
+        gameState = 'ended';
+    } else if (computerWins > 1) {
         computerResultElem.innerHTML = "The Winner is Computer!";
         alert(computerResultElem.innerHTML);
         gameState = 'ended';
-    }
-}
+    }  
 
-checkGameWinner();
+
+var gameWinner = checkGameWinner(playerPointsElem, computerPointsElem);
+}
 
 console.log(player);
 console.log(computer);
-console.log(playerwins);
-console.log(computerwins);
+console.log(gameWinner);
+console.log(playerPointsElem);
+console.log(computerPointsElem);

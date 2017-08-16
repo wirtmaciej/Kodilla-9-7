@@ -58,12 +58,6 @@ function setGameElements() {
     }
 }
 
-function playerPick(playerPick) {
-    console.log(playerPick);
-}	
-
-var x = Math.random();
-
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
@@ -83,30 +77,30 @@ function playerPick(playerPick) {
     checkRoundWinner(playerPick, computerPick);
 }
 
-
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
 
   var winnerIs = 'player';
 
-    if (playerPick == computerPick) {
-        winnerIs = 'noone'; // remis
+    if (playerPick === computerPick) {
+        winnerIs = 'noone';
     } else if (
-        (computerPick == 'rock' &&  playerPick == 'scissors') ||
-        (computerPick == 'scissors' &&  playerPick == 'paper') ||
-        (computerPick == 'paper' &&  playerPick == 'rock')) {
+        (computerPick === 'rock' &&  playerPick ==='scissors') ||
+        (computerPick === 'scissors' &&  playerPick === 'paper') ||
+        (computerPick === 'paper' &&  playerPick === 'rock')) {
 
         winnerIs = 'computer';
     }
 
-    if (winnerIs == 'player') {
+    if (winnerIs === 'player') {
         playerResultElem.innerHTML = "Win!";
         player.score++;
     } else if (winnerIs == 'computer') {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
-
+        setGamePoints();
+        checkGameWinner(player.score, computer.score);
 }
 
 
@@ -126,13 +120,6 @@ function checkGameWinner(playerWins, computerWins) {
         alert(computerResultElem.innerHTML);
         gameState = 'ended';
     }  
-
-
-var gameWinner = checkGameWinner(playerPointsElem, computerPointsElem);
+    setGameElements();
 }
 
-console.log(player);
-console.log(computer);
-console.log(gameWinner);
-console.log(playerPointsElem);
-console.log(computerPointsElem);
